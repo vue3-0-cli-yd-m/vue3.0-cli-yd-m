@@ -14,7 +14,7 @@
     </div>
 
     <div class="t">
-      <span>vite配置官网，可按照需球字形配置</span>
+      <span>vite配置官网，可按照需求自行配置</span>
     </div>
 
     <div class="t">
