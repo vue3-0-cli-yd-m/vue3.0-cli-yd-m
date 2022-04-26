@@ -15,6 +15,7 @@ const codeMessage: Record<number, string> = {
   504: '网关超时。',
   20032: '该功能暂未对您开放',
   10025: '用户不存在',
+  // ...
 };
 
 // 创建axios实例
@@ -28,10 +29,8 @@ const source = CancelToken.source();
 // 添加请求拦截器
 instance.interceptors.request.use(
   (config: AxiosRequestConfig) => {
-    // config
-    // 在发送请求之前做些什么
+    // 在发送请求之前做些什么 config
     const headers = {
-      // 用crm的token发起请求
       Authorization: youngDanStorage.get('token') ? youngDanStorage.get('token') : '',
       'Content-Type': 'application/json',
     };
@@ -54,13 +53,12 @@ instance.interceptors.response.use(
     if (code !== 0) {
       if (code) {
         if (code === 401 || code === 20032 || code === 10025) {
-          window.location.href = 'http://192.168.12.6:8082/#/login';
+          // 异常处理逻辑
         }
         const errorText = codeMessage[code] || msg;
         Toast.fail(errorText);
         return Promise.reject(new Error(msg || 'Error'));
       }
-      // code不存在
       return response;
     }
     return response.data;
