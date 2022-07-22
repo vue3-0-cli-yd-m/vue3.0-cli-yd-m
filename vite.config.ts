@@ -7,20 +7,6 @@ import styleImport from 'vite-plugin-style-import';
 export default defineConfig({
   plugins: [
     vue(),
-    viteCompression({
-      ext: '.gz', // gz br
-      algorithm: 'gzip', // brotliCompress gzip
-      deleteOriginFile: true, // 打包完成后删除源文件
-    }),
-    styleImport({
-      libs: [
-        {
-          libraryName: 'vant',
-          esModule: true,
-          resolveStyle: (name) => `vant/es/${name}/style/index`,
-        },
-      ],
-    }),
   ],
   resolve: {
     alias: {

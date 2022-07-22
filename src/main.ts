@@ -1,5 +1,6 @@
 import { createApp } from 'vue';
 import { Button, Toast } from 'vant';
+import 'vant/lib/index.css';
 
 import 'lib-flexible/flexible';// 解决自动转rem后vant组件变小的问题
 
